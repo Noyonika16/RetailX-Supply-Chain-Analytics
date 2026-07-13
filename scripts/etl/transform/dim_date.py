@@ -70,9 +70,6 @@ def main():
         .dt.weekday >= 5
     )
 
-    # ------------------------
-    # Brazilian Holidays
-    # ------------------------
 
     br_holidays = holidays.country_holidays("BR")
 
