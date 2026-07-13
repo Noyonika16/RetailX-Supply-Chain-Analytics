@@ -3,9 +3,7 @@ import pandas as pd
 
 
 def log_step(message: str):
-    print("\n" + "=" * 70)
     print(message)
-    print("=" * 70)
 
 
 def validate_primary_key(df: pd.DataFrame, column: str):
