@@ -21,14 +21,12 @@ def main():
     translation = pd.read_csv(RAW / "product_category_name_translation.csv")
     order_items = pd.read_csv(RAW / "olist_order_items_dataset.csv")
 
-    # Merge category translation
     products = products.merge(
         translation,
         on="product_category_name",
         how="left"
     )
 
-    # Average selling price
     avg_price = (
         order_items
         .groupby("product_id")["price"]
@@ -42,7 +40,6 @@ def main():
         how="left"
     )
 
-    # Rename columns
     products = products.rename(
         columns={
             "product_category_name_english": "category",
@@ -54,18 +51,15 @@ def main():
         }
     )
 
-    # Generate SKU
     products["sku"] = (
         "SKU-"
         + (products.index + 1).astype(str).str.zfill(6)
     )
 
-    # Estimate unit cost
     products["unit_cost"] = (
         products["selling_price"] * 0.70
     )
 
-    # Final dimension
     dim_products = products[
         [
             "product_id",
@@ -80,7 +74,6 @@ def main():
         ]
     ].copy()
 
-    # Missing values
     dim_products["category"] = dim_products["category"].fillna("Unknown")
 
     numeric_cols = [
@@ -97,11 +90,9 @@ def main():
         numeric_cols
     )
 
-    # Round values
     dim_products["unit_cost"] = dim_products["unit_cost"].round(2)
     dim_products["selling_price"] = dim_products["selling_price"].round(2)
 
-    # Validation
     dataframe_summary(dim_products)
 
     validate_primary_key(
@@ -109,7 +100,6 @@ def main():
         "product_id"
     )
 
-    # Save
     save_csv(
         dim_products,
         PROCESSED / "dim_products.csv"
