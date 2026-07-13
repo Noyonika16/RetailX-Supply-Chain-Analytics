@@ -1,7 +1,3 @@
-"""
-Load processed warehouse tables into PostgreSQL.
-"""
-
 from pathlib import Path
 
 import pandas as pd
@@ -87,7 +83,6 @@ def main():
 
     engine = get_engine()
 
-    # Order matters because of foreign keys
     truncate_order = [
         "fact_sales",
         "dim_products",
@@ -106,9 +101,8 @@ def main():
     for table in TABLES:
         load_table(engine, table)
 
-    print("\n" + "=" * 70)
     print("Verifying Row Counts")
-    print("=" * 70)
+    
 
     for table in TABLES:
         verify_table(engine, table)
