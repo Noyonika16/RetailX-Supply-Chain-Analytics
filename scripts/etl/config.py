@@ -1,6 +1,5 @@
 REGION_MAP = {
 
-    # North
     "AC": "North",
     "AP": "North",
     "AM": "North",
@@ -9,7 +8,6 @@ REGION_MAP = {
     "RR": "North",
     "TO": "North",
 
-    # Northeast
     "AL": "Northeast",
     "BA": "Northeast",
     "CE": "Northeast",
@@ -20,19 +18,16 @@ REGION_MAP = {
     "RN": "Northeast",
     "SE": "Northeast",
 
-    # Central-West
     "DF": "Central-West",
     "GO": "Central-West",
     "MT": "Central-West",
     "MS": "Central-West",
 
-    # Southeast
     "ES": "Southeast",
     "MG": "Southeast",
     "RJ": "Southeast",
     "SP": "Southeast",
 
-    # South
     "PR": "South",
     "RS": "South",
     "SC": "South",
