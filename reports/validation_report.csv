@@ -1,0 +1,63 @@
+table,check,status,details
+dim_products,Primary Key,PASS,product_id is unique
+dim_products,Duplicate Rows,PASS,No duplicate rows
+dim_products,Not Null,PASS,product_id contains no NULL values
+dim_products,Not Null,PASS,sku contains no NULL values
+dim_products,Not Null,PASS,category contains no NULL values
+dim_products,Non Negative,PASS,weight_g contains no negative values
+dim_products,Non Negative,PASS,length_cm contains no negative values
+dim_products,Non Negative,PASS,height_cm contains no negative values
+dim_products,Non Negative,PASS,width_cm contains no negative values
+dim_products,Non Negative,PASS,unit_cost contains no negative values
+dim_products,Non Negative,PASS,selling_price contains no negative values
+dim_customer,Primary Key,PASS,customer_id is unique
+dim_customer,Duplicate Rows,PASS,No duplicate rows
+dim_customer,Not Null,PASS,customer_id contains no NULL values
+dim_customer,Not Null,PASS,customer_unique_id contains no NULL values
+dim_customer,Not Null,PASS,city contains no NULL values
+dim_customer,Not Null,PASS,state contains no NULL values
+dim_customer,Not Null,PASS,customer_region contains no NULL values
+dim_customer,Non Negative,PASS,zip_code_prefix contains no negative values
+dim_customer,Allowed Values,PASS,customer_region contains only allowed values
+dim_warehouse,Primary Key,PASS,warehouse_id is unique
+dim_warehouse,Duplicate Rows,PASS,No duplicate rows
+dim_warehouse,Not Null,PASS,warehouse_id contains no NULL values
+dim_warehouse,Not Null,PASS,seller_id contains no NULL values
+dim_warehouse,Not Null,PASS,city contains no NULL values
+dim_warehouse,Not Null,PASS,state contains no NULL values
+dim_warehouse,Not Null,PASS,warehouse_region contains no NULL values
+dim_warehouse,Not Null,PASS,warehouse_type contains no NULL values
+dim_warehouse,Non Negative,PASS,warehouse_capacity contains no negative values
+dim_warehouse,Non Negative,PASS,storage_cost_per_unit contains no negative values
+dim_warehouse,Allowed Values,PASS,warehouse_type contains only allowed values
+dim_warehouse,Allowed Values,PASS,warehouse_region contains only allowed values
+dim_date,Primary Key,PASS,date_id is unique
+dim_date,Duplicate Rows,PASS,No duplicate rows
+dim_date,Not Null,PASS,date_id contains no NULL values
+dim_date,Not Null,PASS,year contains no NULL values
+dim_date,Not Null,PASS,quarter contains no NULL values
+dim_date,Not Null,PASS,month contains no NULL values
+dim_date,Not Null,PASS,month_name contains no NULL values
+dim_date,Not Null,PASS,week contains no NULL values
+dim_date,Not Null,PASS,day contains no NULL values
+dim_date,Not Null,PASS,weekday contains no NULL values
+dim_date,Not Null,PASS,is_weekend contains no NULL values
+dim_date,Non Negative,PASS,year contains no negative values
+dim_date,Non Negative,PASS,quarter contains no negative values
+dim_date,Non Negative,PASS,month contains no negative values
+dim_date,Non Negative,PASS,week contains no negative values
+dim_date,Non Negative,PASS,day contains no negative values
+dim_date,Allowed Values,PASS,quarter contains only allowed values
+dim_date,Allowed Values,PASS,is_weekend contains only allowed values
+fact_sales,Primary Key,PASS,sale_id is unique
+fact_sales,Duplicate Rows,PASS,No duplicate rows
+fact_sales,Not Null,PASS,sale_id contains no NULL values
+fact_sales,Not Null,PASS,order_id contains no NULL values
+fact_sales,Not Null,PASS,product_id contains no NULL values
+fact_sales,Not Null,PASS,customer_id contains no NULL values
+fact_sales,Not Null,PASS,warehouse_id contains no NULL values
+fact_sales,Not Null,PASS,date_id contains no NULL values
+fact_sales,Non Negative,PASS,quantity contains no negative values
+fact_sales,Non Negative,PASS,sales_price contains no negative values
+fact_sales,Non Negative,PASS,freight_cost contains no negative values
+fact_sales,Non Negative,PASS,revenue contains no negative values
