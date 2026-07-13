@@ -1,8 +1,3 @@
-"""
-RetailX Validation Framework
-Reusable validation engine for all warehouse tables.
-"""
-
 import pandas as pd
 
 
@@ -15,10 +10,7 @@ class DataValidator:
 
         self.results = []
 
-    # ---------------------------------------------------------
-    # Internal helper
-    # ---------------------------------------------------------
-
+  
     def _add_result(self, check, status, details):
 
         self.results.append(
@@ -29,10 +21,6 @@ class DataValidator:
                 "details": details
             }
         )
-
-    # ---------------------------------------------------------
-    # Summary
-    # ---------------------------------------------------------
 
     def summary(self):
 
@@ -47,10 +35,7 @@ class DataValidator:
 
         print(self.df.isnull().sum())
 
-    # ---------------------------------------------------------
-    # Primary Key
-    # ---------------------------------------------------------
-
+    
     def validate_primary_key(self, column):
 
         if column not in self.df.columns:
@@ -91,9 +76,6 @@ class DataValidator:
                 f"{column} is unique"
             )
 
-    # ---------------------------------------------------------
-    # Duplicate Rows
-    # ---------------------------------------------------------
 
     def validate_duplicate_rows(self):
 
@@ -115,9 +97,6 @@ class DataValidator:
                 "No duplicate rows"
             )
 
-    # ---------------------------------------------------------
-    # Not Null
-    # ---------------------------------------------------------
 
     def validate_not_null(self, columns):
 
@@ -151,9 +130,6 @@ class DataValidator:
                     f"{col} contains no NULL values"
                 )
 
-    # ---------------------------------------------------------
-    # Non Negative
-    # ---------------------------------------------------------
 
     def validate_non_negative(self, columns):
 
@@ -187,10 +163,6 @@ class DataValidator:
                     f"{col} contains no negative values"
                 )
 
-    # ---------------------------------------------------------
-    # Allowed Values
-    # ---------------------------------------------------------
-
     def validate_allowed_values(self, column, allowed):
 
         if column not in self.df.columns:
@@ -223,10 +195,7 @@ class DataValidator:
                 f"{column} contains only allowed values"
             )
 
-    # ---------------------------------------------------------
-    # Report
-    # ---------------------------------------------------------
-
+   
     def report(self):
 
         report = pd.DataFrame(self.results)
