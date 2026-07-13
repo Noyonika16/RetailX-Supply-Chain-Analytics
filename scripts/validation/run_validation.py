@@ -1,7 +1,3 @@
-"""
-Run validation on all processed warehouse tables.
-"""
-
 from pathlib import Path
 import sys
 import pandas as pd
@@ -75,10 +71,7 @@ def main():
 
         all_reports.append(report)
 
-    # -----------------------------------------------------
-    # Merge reports
-    # -----------------------------------------------------
-
+   
     final_report = pd.concat(
         all_reports,
         ignore_index=True
@@ -91,10 +84,7 @@ def main():
         index=False
     )
 
-    # -----------------------------------------------------
-    # Overall Summary
-    # -----------------------------------------------------
-
+    
     total_checks = len(final_report)
 
     passed = (
